@@ -69,6 +69,9 @@ struct HomeView: View {
             
             //MARK: Fitness Ring View
             FitnessRingCardView()
+            
+            //MARK: Bar Graph View
+            FitnessStepsGraphView()
         }
         .padding()
         .onAppear(perform: extractCurrentWeek)

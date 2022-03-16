@@ -18,20 +18,20 @@ struct FitnessRingCardView: View {
                 
                 //Progress Ring
                 ZStack{
-                ForEach(rings.indices, id: \.self) { index in
-                    ZStack{
-                    Circle()
-                        .stroke(.gray.opacity(0.3), lineWidth: 10)
-                    
-                    Circle()
-                            .trim(from: 0, to: rings[index].progress / 100)
-                        .stroke(rings[index].keyColor,style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
-                        .rotationEffect(.init(degrees: -90.0))
+                    ForEach(rings.indices, id: \.self) { index in
+                        ZStack{
+                            Circle()
+                                .stroke(.gray.opacity(0.3), lineWidth: 10)
+                            
+                            Circle()
+                                .trim(from: 0, to: rings[index].progress / 100)
+                                .stroke(rings[index].keyColor,style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                                .rotationEffect(.init(degrees: -90.0))
+                        }
+                        .padding(CGFloat(index) * 16)
+                    }
                 }
-                .padding(CGFloat(index) * 16)
-            }
-        }
-        .frame(width: 130, height: 130)
+                .frame(width: 130, height: 130)
                 
                 VStack(alignment: .leading, spacing: 12){
                     ForEach(rings){ ring in
@@ -60,14 +60,15 @@ struct FitnessRingCardView: View {
                     }
                 }
                 .padding(.leading, 10)
-    }
-            .padding(.horizontal,20)
-            .padding(.vertical, 25)
-            .background{
-                RoundedRectangle(cornerRadius: 25, style: .continuous)
-                    .fill(.ultraThinMaterial)
             }
-    }
+        }
+        .padding(.horizontal,20)
+        .padding(.vertical, 25)
+        .background{
+            RoundedRectangle(cornerRadius: 25, style: .continuous)
+                .fill(.ultraThinMaterial)
+        }
+        
     }
 }
 
