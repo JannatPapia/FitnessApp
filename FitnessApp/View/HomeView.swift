@@ -54,6 +54,21 @@ struct HomeView: View {
                     }
                 }
             }
+            
+            .padding(.top, 10)
+            
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Steps")
+                    .fontWeight(.semibold)
+                
+                Text("6,243")
+                    .font(.system(size: 45, weight: .bold))
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.vertical, 15)
+            
+            //MARK: Fitness Ring View
+            FitnessRingCardView()
         }
         .padding()
         .onAppear(perform: extractCurrentWeek)
@@ -79,7 +94,7 @@ struct HomeView: View {
         let formatter = DateFormatter()
         formatter.dateFormat = (isSameDay(date1: currentDay, date2: date) ? "dd MMM" : "dd")
         
-        return(isSameDay(date1: currentDay, date2: date) ? "Today, " : "") +
+        return (isDateToday(date: date) && isSameDay(date1: currentDay, date2: date) ?  "Today, " : "") +
         formatter.string(from: date)
     }
     
