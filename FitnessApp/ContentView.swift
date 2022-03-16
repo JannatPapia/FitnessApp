@@ -9,8 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ScrollView(.vertical, showsIndicators: false) {
+        HomeView()
+        }
+        .frame(maxWidth: .infinity)
+        .background{
+            ZStack{
+                VStack{
+                    
+                }
+            }
+            .ignoresSafeArea()
+        }
     }
 }
 

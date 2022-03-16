@@ -11,6 +11,9 @@
 		5CC758B627E2346900E13595 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC758B527E2346900E13595 /* ContentView.swift */; };
 		5CC758B827E2346B00E13595 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CC758B727E2346B00E13595 /* Assets.xcassets */; };
 		5CC758BB27E2346B00E13595 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CC758BA27E2346B00E13595 /* Preview Assets.xcassets */; };
+		5CC758C427E23C0700E13595 /* RingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC758C327E23C0700E13595 /* RingModel.swift */; };
+		5CC758C627E23E7A00E13595 /* StepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC758C527E23E7A00E13595 /* StepModel.swift */; };
+		5CC758C827E2400500E13595 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC758C727E2400500E13595 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		5CC758B527E2346900E13595 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5CC758B727E2346B00E13595 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CC758BA27E2346B00E13595 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5CC758C327E23C0700E13595 /* RingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingModel.swift; sourceTree = "<group>"; };
+		5CC758C527E23E7A00E13595 /* StepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepModel.swift; sourceTree = "<group>"; };
+		5CC758C727E2400500E13595 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,8 @@
 		5CC758B227E2346900E13595 /* FitnessApp */ = {
 			isa = PBXGroup;
 			children = (
+				5CC758C227E23BDA00E13595 /* Model */,
+				5CC758C127E23BC600E13595 /* View */,
 				5CC758B327E2346900E13595 /* FitnessAppApp.swift */,
 				5CC758B527E2346900E13595 /* ContentView.swift */,
 				5CC758B727E2346B00E13595 /* Assets.xcassets */,
@@ -65,6 +73,23 @@
 				5CC758BA27E2346B00E13595 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5CC758C127E23BC600E13595 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5CC758C727E2400500E13595 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5CC758C227E23BDA00E13595 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5CC758C327E23C0700E13595 /* RingModel.swift */,
+				5CC758C527E23E7A00E13595 /* StepModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CC758C427E23C0700E13595 /* RingModel.swift in Sources */,
 				5CC758B627E2346900E13595 /* ContentView.swift in Sources */,
 				5CC758B427E2346900E13595 /* FitnessAppApp.swift in Sources */,
+				5CC758C827E2400500E13595 /* HomeView.swift in Sources */,
+				5CC758C627E23E7A00E13595 /* StepModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
