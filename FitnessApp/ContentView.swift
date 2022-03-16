@@ -16,11 +16,24 @@ struct ContentView: View {
         .background{
             ZStack{
                 VStack{
+                    Circle()
+                        .fill(Color("Green"))
+                        .scaleEffect(0.6)
+                        .offset(x: 20)
+                        .blur(radius: 120)
                     
+                    Circle()
+                        .fill(Color("Red"))
+                        .scaleEffect(0.6, anchor: .leading)
+                        .offset(y: -20)
+                        .blur(radius: 120)
                 }
+                Rectangle()
+                    .fill(.ultraThinMaterial)
             }
             .ignoresSafeArea()
         }
+        .preferredColorScheme(.dark)
     }
 }
 
