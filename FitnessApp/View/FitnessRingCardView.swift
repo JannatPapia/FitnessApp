@@ -32,7 +32,41 @@ struct FitnessRingCardView: View {
             }
         }
         .frame(width: 130, height: 130)
+                
+                VStack(alignment: .leading, spacing: 12){
+                    ForEach(rings){ ring in
+                        Label {
+                            HStack(alignment: .bottom, spacing: 6) {
+                                Text("\(Int(ring.progress))%")
+                                    .font(.title3.bold())
+                                
+                                Text(ring.value)
+                                    .font(.caption)
+                            }
+                        } icon: {
+                            
+                            Group {
+                                if ring.isText{
+                                    Text(ring.keyIcon)
+                                        .font(.title2)
+                                }
+                                else {
+                                    Image(systemName: ring.keyIcon)
+                                        .font(.title2)
+                                }
+                            }
+                            .frame(width: 30)
+                        }
+                    }
+                }
+                .padding(.leading, 10)
     }
+            .padding(.horizontal,20)
+            .padding(.vertical, 25)
+            .background{
+                RoundedRectangle(cornerRadius: 25, style: .continuous)
+                    .fill(.ultraThinMaterial)
+            }
     }
     }
 }
