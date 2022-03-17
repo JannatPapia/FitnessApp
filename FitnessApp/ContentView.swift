@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    //Optional
+    @State var showView: Bool = false
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-        HomeView()
+            if showView{
+                HomeView()
+            }
+       
         }
         .frame(maxWidth: .infinity)
         .background{
@@ -21,7 +26,7 @@ struct ContentView: View {
                         .scaleEffect(0.6)
                         .offset(x: 20)
                         .blur(radius: 120)
-                    
+
                     Circle()
                         .fill(Color("Red"))
                         .scaleEffect(0.6, anchor: .leading)
@@ -34,6 +39,11 @@ struct ContentView: View {
             .ignoresSafeArea()
         }
         .preferredColorScheme(.dark)
+        .onAppear{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                showView = true
+            }
+        }
     }
 }
 

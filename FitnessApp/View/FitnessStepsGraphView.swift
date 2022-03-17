@@ -72,17 +72,19 @@ struct BarGraph: View {
                 }
                 
                 HStack {
-                    ForEach(steps) { step in
+                    ForEach(steps.indices, id: \.self) { index in
+                        let step = steps[index]
                         VStack (spacing: 0) {
                        VStack(spacing: 5) {
-                            
-                           RoundedRectangle(cornerRadius: 5, style: .continuous)
-                               .fill(step.color)
-//                            Capsule()
-//                                .fill(Color.green)
-//
-//                            Capsule()
-//                                .fill(Color.blue)
+                           AnimatedBarGraph(step: steps[index], index: index)
+
+//                           RoundedRectangle(cornerRadius: 5, style: .continuous)
+//                               .fill(step.color)
+                //                            Capsule()
+                //                                .fill(Color.green)
+                //
+                //                            Capsule()
+                //                                .fill(Color.blue)
                         }
                        .padding(.horizontal, 5)
                      //   .frame(width: 8)
@@ -97,6 +99,8 @@ struct BarGraph: View {
                         .font(.caption)
                         .frame(height: 25, alignment: .bottom)
                     }
+                        
+                        
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
                     }
             }
@@ -144,4 +148,31 @@ struct BarGraph: View {
         return max
     }
     
+}
+
+
+
+struct AnimatedBarGraph: View {
+    var step: StepModel
+    var index: Int
+    
+    @State var showBar: Bool = false
+    
+    var body: some View {
+        
+        VStack(spacing: 0) {
+            Spacer(minLength: 0)
+            
+            RoundedRectangle(cornerRadius: 5, style: .continuous)
+                .fill(step.color)
+                .frame(height: showBar ? nil : 0, alignment: .bottom)
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.8, blendDuration: 0.8).delay(Double(index) * 0.1)) {
+                    showBar = true
+                }
+            }
+        }
+    }
 }
