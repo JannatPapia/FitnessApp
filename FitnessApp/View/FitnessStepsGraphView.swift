@@ -43,49 +43,7 @@ struct BarGraph: View {
         //Graph view
         GrapView()
             .padding(.top,20)
-        
-//        VStack(spacing: 20) {
-//
-//            HStack{
-//                Text("Fasting History")
-//                    .fontWeight(.bold)
-//
-//                Spacer()
-//
-//                Menu {
-//
-//                    Button("Month"){}
-//                    Button("Year"){}
-//                    Button("Day"){}
-//
-//
-//                } label: {
-//                    HStack(spacing: 4) {
-//                        Text("this week")
-//
-//                        Image(systemName: "arrowtriangle.down.fill")
-//                            .scaleEffect(0.7)
-//                    }
-//                    .font(.system(size: 14, weight: .bold))
-//                    .foregroundColor(.gray)
-//                }
-//            }
-//
-//                HStack(spacing: 10) {
-//                     Capsule()
-//                        .fill(Color.blue)
-//                        .frame(width: 20, height: 8)
-//
-//                    Text("steps")
-//                        .font(.system(size: 14, weight: .bold))
-//                        .foregroundColor(.gray)
-//                }
-//                .frame(maxWidth: .infinity, alignment: .leading)
-//        }
-//        .padding(.horizontal,20)
-//        .background(Color.white)
-//        .cornerRadius(20)
-//        .padding(.top, 25)
+
     }
     
     @ViewBuilder
@@ -118,17 +76,24 @@ struct BarGraph: View {
                         VStack (spacing: 0) {
                        VStack(spacing: 5) {
                             
-                            Capsule()
-                                .fill(Color.green)
-                            
-                            Capsule()
-                                .fill(Color.blue)
+                           RoundedRectangle(cornerRadius: 5, style: .continuous)
+                               .fill(step.color)
+//                            Capsule()
+//                                .fill(Color.green)
+//
+//                            Capsule()
+//                                .fill(Color.blue)
                         }
-                        .frame(width: 8)
+                       .padding(.horizontal, 5)
+                     //   .frame(width: 8)
                         .frame(height: getBarHeight(point: step.value,
                                                     size: proxy.size))
                        
-                        Text(step.key)
+                        Text(
+                            step.key
+                                .replacingOccurrences(of: " AM", with: "")
+                                .replacingOccurrences(of: " PM", with: "")
+                        )
                         .font(.caption)
                         .frame(height: 25, alignment: .bottom)
                     }
