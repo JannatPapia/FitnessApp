@@ -14,7 +14,7 @@ struct StepModel: Identifiable {
     var id = UUID().uuidString
     var value: CGFloat
     var key: String
-    var color: Color = Color("purple")
+    var color: Color = Color("Purple")
     
 }
 
